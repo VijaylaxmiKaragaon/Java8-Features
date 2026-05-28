@@ -78,7 +78,7 @@ public class DatabaseClassDemo {
 	Emp emp_first_data=s.get();
 	System.out.println(emp_first_data);
 	
-	Supplier<String> s1=()->"Vijay has huge girl fan following";
+	Supplier<String> s1=()->"Vijay has huge fan following";
 	System.out.println(s1.get());
 	
 	System.out.println("-----------Funtion Functional interface-----------");
