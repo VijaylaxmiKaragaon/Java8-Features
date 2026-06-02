@@ -115,7 +115,11 @@ public class Demo2 {
 		.filter((e)->!e.job.equals("ceo"))
 		.forEach(System.out::println);
 		
-	
+	    	//4. WAP to display the data of emps if the emp is getting salary more than 45000
+		System.out.println("-------------4-------------");
+		eList.stream()
+		.filter((e)->e.sal>=45000)
+		.forEach(System.out::println);
 	}
 
 }
