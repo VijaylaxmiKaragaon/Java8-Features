@@ -103,7 +103,13 @@ public class Demo2 {
 		.filter((e)->e.job.equals("Salesman"))
 		.forEach(System.out::println);
 		
+		//2. WAP to display the data of emps if emp is working in dept 112
+		System.out.println("-------------2--------------");
+		eList.stream()
+		.filter((e)->e.dno == 112)
+		.forEach(System.out::println);
 		
+
 	}
 
 }
