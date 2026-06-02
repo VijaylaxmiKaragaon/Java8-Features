@@ -153,7 +153,13 @@ public class Demo2 {
 	    .filter((e)->e.lname.endsWith("i") || e.lname.endsWith("y"))
 	    .forEach(System.out::println);
 	    
-
+        	    //10. WAP to display the details of emp if emp is working as salesman or manager in dept 110 or 111
+	    System.out.println("-------------10-------------");
+	    eList.stream()
+	    .filter((e)->(e.job.equals("Salesman") || e.job.equals("Manager")) && (e.dno==110 || e.dno==111))
+	    .forEach(System.out::println);
+	    
+	  
 
 	}
 
