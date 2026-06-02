@@ -120,6 +120,16 @@ public class Demo2 {
 		eList.stream()
 		.filter((e)->e.sal>=45000)
 		.forEach(System.out::println);
+
+				
+		//5.WAP to display the details of emp of the emp fname starts with s
+		System.out.println("-------------5--------------");
+		eList.stream()
+		.filter((e)->e.fname.startsWith("S"))
+		.forEach(System.out::println);
+		
+		
+
 	}
 
 }
