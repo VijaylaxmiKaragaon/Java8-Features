@@ -24,6 +24,11 @@ class Emp{
 		this.sal = sal;
 		this.dno = dno;
 	}
+	@Override
+	public String toString() {
+		return "Emp [eid=" + eid + ", fname=" + fname + ", lname=" + lname + ", job=" + job + ", sal=" + sal + ", dno="
+				+ dno + "]";
+	}	
 }
 
 class Dept{
@@ -37,6 +42,7 @@ class Dept{
 		this.lid = lid;
 	}
 }
+
 class DataFromDB {
 	public static Connection reqCon() {
 		Connection con=null;
@@ -46,8 +52,7 @@ class DataFromDB {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		return con;
-		
+		return con;	
 	}
 	
 	public static List<Emp> getAllEmp(){
@@ -85,6 +90,7 @@ class DataFromDB {
 		}
 	return dList;
 }
+	
 public class Demo2 {
 
 	public static void main(String[] args) {
@@ -92,7 +98,12 @@ public class Demo2 {
 		List<Dept> dList = DataFromDB.getAllDept();
 		
 		//1. WAP to display the data of emps who is working as salesman
-
+		System.out.println("-------------1-------------");
+		eList.stream()
+		.filter((e)->e.job.equals("Salesman"))
+		.forEach(System.out::println);
+		
+		
 	}
 
 }
