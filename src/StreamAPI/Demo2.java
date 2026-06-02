@@ -109,7 +109,13 @@ public class Demo2 {
 		.filter((e)->e.dno == 112)
 		.forEach(System.out::println);
 		
-
+        //3. WAP TO DISPLAY THE DATA OF EMps if the emp is not working as ceo
+		System.out.println("-------------3--------------");
+		eList.stream()
+		.filter((e)->!e.job.equals("ceo"))
+		.forEach(System.out::println);
+		
+	
 	}
 
 }
