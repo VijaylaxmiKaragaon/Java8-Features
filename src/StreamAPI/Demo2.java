@@ -146,7 +146,14 @@ public class Demo2 {
 	    .filter((e)->e.sal>=40000 || e.sal<=100000)
 	    .forEach(System.out::println);
 	
-	
+	        
+	    //9.WAP to display the details of emp if the emp last name ends with i or y
+	    System.out.println("-------------9---------------");
+	    eList.stream()
+	    .filter((e)->e.lname.endsWith("i") || e.lname.endsWith("y"))
+	    .forEach(System.out::println);
+	    
+
 
 	}
 
