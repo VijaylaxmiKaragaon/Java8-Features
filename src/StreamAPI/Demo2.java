@@ -128,7 +128,14 @@ public class Demo2 {
 		.filter((e)->e.fname.startsWith("S"))
 		.forEach(System.out::println);
 		
+		//6. WAP to display the details of emp if the emp job role starts with D
+		System.out.println("-------------6--------------");
+		eList.stream()
+		.filter((e)->e.job.startsWith("D"))
+		.forEach(System.out::println);
 		
+	
+	
 
 	}
 
