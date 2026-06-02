@@ -134,6 +134,17 @@ public class Demo2 {
 		.filter((e)->e.job.startsWith("D"))
 		.forEach(System.out::println);
 		
+	        //7. WAP to display the details of emp if the emp is working as Salesman or manager
+		System.out.println("-------------7---------------");
+	    eList.stream()
+	    .filter((e)->e.job.equals("Salesman") || e.job.equals("Manager"))
+	    .forEach(System.out::println);
+	    
+	    //8.WAP to display the details og emp if the emp is getting salary more than 40000 nut less than 100000
+	    System.out.println("-------------8---------------");
+	    eList.stream()
+	    .filter((e)->e.sal>=40000 || e.sal<=100000)
+	    .forEach(System.out::println);
 	
 	
 
