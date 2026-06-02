@@ -8,13 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Emp{
+class Emp {
 	Integer eid;
 	String fname;
 	String lname;
 	String job;
 	Double sal;
 	Integer dno;
+
 	public Emp(Integer eid, String fname, String lname, String job, Double sal, Integer dno) {
 		super();
 		this.eid = eid;
@@ -24,17 +25,19 @@ class Emp{
 		this.sal = sal;
 		this.dno = dno;
 	}
+
 	@Override
 	public String toString() {
 		return "Emp [eid=" + eid + ", fname=" + fname + ", lname=" + lname + ", job=" + job + ", sal=" + sal + ", dno="
 				+ dno + "]";
-	}	
+	}
 }
 
-class Dept{
+class Dept {
 	Integer dno;
 	String dname;
 	Integer lid;
+
 	public Dept(Integer dno, String dname, Integer lid) {
 		super();
 		this.dno = dno;
@@ -45,123 +48,127 @@ class Dept{
 
 class DataFromDB {
 	public static Connection reqCon() {
-		Connection con=null;
+		Connection con = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/company_1","root","vsk@2004");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company_1", "root", "vsk@2004");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		return con;	
+		return con;
 	}
-	
-	public static List<Emp> getAllEmp(){
-		List<Emp> eList=new ArrayList<Emp>();
-		Emp e=null;
+
+	public static List<Emp> getAllEmp() {
+		List<Emp> eList = new ArrayList<Emp>();
+		Emp e = null;
 		try {
-			Connection con=DataFromDB.reqCon();
-			PreparedStatement ps=con.prepareStatement("SELECT * From Emp");
-			ResultSet rs=ps.executeQuery();
-			while(rs.next()) {
-				e=new Emp(rs.getInt("eid"),rs.getString("fname"),rs.getString("lname"),rs.getString("job"),rs.getDouble("sal"),rs.getInt("dno"));
+			Connection con = DataFromDB.reqCon();
+			PreparedStatement ps = con.prepareStatement("SELECT * From Emp");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				e = new Emp(rs.getInt("eid"), rs.getString("fname"), rs.getString("lname"), rs.getString("job"),
+						rs.getDouble("sal"), rs.getInt("dno"));
 				eList.add(e);
 			}
-		}
-		catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-		return eList;
-	}
-	
-	public static List<Dept> getAllDept(){
-		List<Dept> dList=new ArrayList<Dept>();
-		Dept d=null;
-		Connection con=DataFromDB.reqCon();
-		try {
-			PreparedStatement ps=con.prepareStatement("SELECT * From Dept");
-			ResultSet rs=ps.executeQuery();
-			while(rs.next()) {
-				d=new Dept(rs.getInt("dno"),rs.getString("dname"),rs.getInt("lid"));
-				dList.add(d);
-			}
-		}
-		catch (SQLException e1) {
+		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-	return dList;
-}
-	
-public class Demo2 {
-
-	public static void main(String[] args) {
-		List<Emp> eList = DataFromDB.getAllEmp();
-		List<Dept> dList = DataFromDB.getAllDept();
-		
-		//1. WAP to display the data of emps who is working as salesman
-		System.out.println("-------------1-------------");
-		eList.stream()
-		.filter((e)->e.job.equals("Salesman"))
-		.forEach(System.out::println);
-		
-		//2. WAP to display the data of emps if emp is working in dept 112
-		System.out.println("-------------2--------------");
-		eList.stream()
-		.filter((e)->e.dno == 112)
-		.forEach(System.out::println);
-		
-        //3. WAP TO DISPLAY THE DATA OF EMps if the emp is not working as ceo
-		System.out.println("-------------3--------------");
-		eList.stream()
-		.filter((e)->!e.job.equals("ceo"))
-		.forEach(System.out::println);
-		
-	    	//4. WAP to display the data of emps if the emp is getting salary more than 45000
-		System.out.println("-------------4-------------");
-		eList.stream()
-		.filter((e)->e.sal>=45000)
-		.forEach(System.out::println);
-
-				
-		//5.WAP to display the details of emp of the emp fname starts with s
-		System.out.println("-------------5--------------");
-		eList.stream()
-		.filter((e)->e.fname.startsWith("S"))
-		.forEach(System.out::println);
-		
-		//6. WAP to display the details of emp if the emp job role starts with D
-		System.out.println("-------------6--------------");
-		eList.stream()
-		.filter((e)->e.job.startsWith("D"))
-		.forEach(System.out::println);
-		
-	        //7. WAP to display the details of emp if the emp is working as Salesman or manager
-		System.out.println("-------------7---------------");
-	    eList.stream()
-	    .filter((e)->e.job.equals("Salesman") || e.job.equals("Manager"))
-	    .forEach(System.out::println);
-	    
-	    //8.WAP to display the details og emp if the emp is getting salary more than 40000 nut less than 100000
-	    System.out.println("-------------8---------------");
-	    eList.stream()
-	    .filter((e)->e.sal>=40000 || e.sal<=100000)
-	    .forEach(System.out::println);
-	
-	        
-	    //9.WAP to display the details of emp if the emp last name ends with i or y
-	    System.out.println("-------------9---------------");
-	    eList.stream()
-	    .filter((e)->e.lname.endsWith("i") || e.lname.endsWith("y"))
-	    .forEach(System.out::println);
-	    
-        	    //10. WAP to display the details of emp if emp is working as salesman or manager in dept 110 or 111
-	    System.out.println("-------------10-------------");
-	    eList.stream()
-	    .filter((e)->(e.job.equals("Salesman") || e.job.equals("Manager")) && (e.dno==110 || e.dno==111))
-	    .forEach(System.out::println);
-	    
-	  
-
+		return eList;
 	}
 
-}
+	public static List<Dept> getAllDept() {
+		List<Dept> dList = new ArrayList<Dept>();
+		Dept d = null;
+		Connection con = DataFromDB.reqCon();
+		try {
+			PreparedStatement ps = con.prepareStatement("SELECT * From Dept");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				d = new Dept(rs.getInt("dno"), rs.getString("dname"), rs.getInt("lid"));
+				dList.add(d);
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return dList;
+	}
+
+	public class Demo2 {
+
+		public static void main(String[] args) {
+			List<Emp> eList = DataFromDB.getAllEmp();
+			List<Dept> dList = DataFromDB.getAllDept();
+
+			// 1. WAP to display the data of emps who is working as salesman
+			System.out.println("-------------1-------------");
+			eList.stream()
+					.filter((e) -> e.job.equals("Salesman"))
+					.forEach(System.out::println);
+
+			// 2. WAP to display the data of emps if emp is working in dept 112
+			System.out.println("-------------2--------------");
+			eList.stream()
+					.filter((e) -> e.dno == 112)
+					.forEach(System.out::println);
+
+			// 3. WAP TO DISPLAY THE DATA OF EMps if the emp is not working as ceo
+			System.out.println("-------------3--------------");
+			eList.stream()
+					.filter((e) -> !e.job.equals("ceo"))
+					.forEach(System.out::println);
+
+			// 4. WAP to display the data of emps if the emp is getting salary more than
+			// 45000
+			System.out.println("-------------4-------------");
+			eList.stream()
+					.filter((e) -> e.sal >= 45000)
+					.forEach(System.out::println);
+
+			// 5.WAP to display the details of emp of the emp fname starts with s
+			System.out.println("-------------5--------------");
+			eList.stream()
+					.filter((e) -> e.fname.startsWith("S"))
+					.forEach(System.out::println);
+
+			// 6. WAP to display the details of emp if the emp job role starts with D
+			System.out.println("-------------6--------------");
+			eList.stream()
+					.filter((e) -> e.job.startsWith("D"))
+					.forEach(System.out::println);
+
+			// 7. WAP to display the details of emp if the emp is working as Salesman or
+			// manager
+			System.out.println("-------------7---------------");
+			eList.stream()
+					.filter((e) -> e.job.equals("Salesman") || e.job.equals("Manager"))
+					.forEach(System.out::println);
+
+			// 8.WAP to display the details og emp if the emp is getting salary more than
+			// 40000 nut less than 100000
+			System.out.println("-------------8---------------");
+			eList.stream()
+					.filter((e) -> e.sal >= 40000 || e.sal <= 100000)
+					.forEach(System.out::println);
+
+			// 9.WAP to display the details of emp if the emp last name ends with i or y
+			System.out.println("-------------9---------------");
+			eList.stream()
+					.filter((e) -> e.lname.endsWith("i") || e.lname.endsWith("y"))
+					.forEach(System.out::println);
+
+			// 10. WAP to display the details of emp if emp is working as salesman or
+			// manager in dept 110 or 111
+			System.out.println("-------------10-------------");
+			eList.stream()
+					.filter((e) -> (e.job.equals("Salesman") || e.job.equals("Manager"))
+							&& (e.dno == 110 || e.dno == 111))
+					.forEach(System.out::println);
+
+			System.out.println("---------------11---------------");
+			// 11. WAP to display the details of the emp if the emp is getting sal more than
+			// 35000
+
+		}
+
+	}
 }
