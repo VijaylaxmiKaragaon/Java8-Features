@@ -190,6 +190,19 @@ class DataFromDB {
             .map(e->e.fname.toUpperCase())
             .forEach(System.out::println);
             
+            //13. WAP to display the names and sal of the emp
+            //if the emp is getting salary more than 50000
+            System.out.println("------------13---------");
+            eList.stream()
+            .filter((e)->e.sal>50000)
+            .map(e->e.fname +" " +e.sal)
+            .forEach(System.out::println);
+            
+            //14.WAP to display the name,job and dept no if the emp is working as developer or tester in dept 113.
+            System.out.println("---------14------------");
+            
+            //15. WAP to display the fullname of the emps
+            
 		}
 
 	}
