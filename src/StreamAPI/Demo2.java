@@ -218,6 +218,12 @@ class DataFromDB {
             eList.stream()
             .map(e->e.fname+"."+e.lname.charAt(0))
             .forEach(System.out::println);
+            
+            //17. WAP to display the first half of the fname
+            System.out.println("-----------17------------");
+            eList.stream()
+            .map(e->e.fname.substring(0,e.fname.length()/2))
+            .forEach(System.out::println);
 		}
 
 	}
