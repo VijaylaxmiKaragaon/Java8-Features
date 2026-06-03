@@ -236,6 +236,14 @@ class DataFromDB {
             System.out.println("------------19-----------");
             eList.stream()
             .map(e->e.job)
+            .distinct()
+            .forEach(System.out::println);
+            
+            //20. WAP to display the different dipartments available in empData
+            System.out.println("-----------20-----------");
+            eList.stream()
+            .map(e->e.dno)
+            .distinct()
             .forEach(System.out::println);
 		}
 
