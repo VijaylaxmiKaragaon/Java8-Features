@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 class Emp {
 	Integer eid;
@@ -167,7 +168,22 @@ class DataFromDB {
 			System.out.println("---------------11---------------");
 			// 11. WAP to display the details of the emp if the emp is getting sal more than
 			// 35000
-
+            eList.stream()
+            .filter((e) -> e.sal>35000)
+            .forEach(System.out::println);
+            
+            System.out.println("-----------12------------------");
+            //12. WAP to display the details of the emp if the emp name starts with s and display only fname
+            Consumer<Emp> c= e->	System.out.println(e.fname);
+            eList.stream()
+            .filter((e)->e.fname.startsWith("S"))
+            .forEach(c);
+            
+            //OR
+            eList.stream()
+            .filter((e)->e.fname.startsWith("S"))
+            .forEach(e->System.out.println(e.fname));
+            
 		}
 
 	}
