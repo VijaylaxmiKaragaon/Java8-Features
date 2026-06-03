@@ -214,6 +214,10 @@ class DataFromDB {
             
             //16. WAP to display the emp fullname in below for
             //Siddarth Patil => Siddarth.P
+            System.out.println("----------16----------");
+            eList.stream()
+            .map(e->e.fname+"."+e.lname.charAt(0))
+            .forEach(System.out::println);
 		}
 
 	}
