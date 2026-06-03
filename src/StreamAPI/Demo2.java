@@ -200,6 +200,11 @@ class DataFromDB {
             
             //14.WAP to display the name,job and dept no if the emp is working as developer or tester in dept 113.
             System.out.println("---------14------------");
+            eList.stream()
+            .filter((e)->(e.dno==113) && (e.job.equalsIgnoreCase("Developer")) || (e.job.equalsIgnoreCase("Tester")))
+            .map(e->e.fname+" "+e.job+" "+e.dno)
+            .forEach(System.out::println);
+            
             
             //15. WAP to display the fullname of the emps
             
