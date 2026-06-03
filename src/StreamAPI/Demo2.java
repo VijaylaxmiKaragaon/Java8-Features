@@ -224,6 +224,19 @@ class DataFromDB {
             eList.stream()
             .map(e->e.fname.substring(0,e.fname.length()/2))
             .forEach(System.out::println);
+            
+            //18. WAP to display 1st name and lname if the lenght of 1st name exceeds 4 characters
+            System.out.println("-----------18--------------");
+            eList.stream()
+            .filter(e->e.fname.length()>5)
+            .map(e->e.fname+" "+e.lname)
+            .forEach(System.out::println);
+            
+            //19.WAP to display all the job reoles from empData
+            System.out.println("------------19-----------");
+            eList.stream()
+            .map(e->e.job)
+            .forEach(System.out::println);
 		}
 
 	}
