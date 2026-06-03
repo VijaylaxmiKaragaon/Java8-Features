@@ -184,6 +184,12 @@ class DataFromDB {
             .filter((e)->e.fname.startsWith("S"))
             .forEach(e->System.out.println(e.fname));
             
+            //By Using Map Method
+            eList.stream()
+            .filter((e)->e.fname.startsWith("S"))
+            .map(e->e.fname.toUpperCase())
+            .forEach(System.out::println);
+            
 		}
 
 	}
