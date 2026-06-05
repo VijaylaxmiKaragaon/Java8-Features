@@ -268,7 +268,14 @@ class DataFromDB {
             .limit(4)
             .forEach(System.out::println);
             
+           //24. WAT to display the 4th emp data
+            System.out.println("----------24-------------");
+            eList.stream()
+            .skip(3)
+            .limit(1)
+            .forEach(System.out::println);
             
+      
         
             
 		}
