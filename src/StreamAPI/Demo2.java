@@ -340,7 +340,25 @@ class DataFromDB {
             .limit(1)
             .forEach(System.out::println);
             
-     
+                   //34. WAP to display the 3rd min salary
+            System.out.println("----------34------------");
+            eList.stream()
+            .sorted(java.util.Comparator.comparing((Emp e)->e.sal))
+            .map(e->e.sal)
+            .distinct()
+            .skip(2)
+            .limit(1)
+            .forEach(System.out::println);
+    
+                
+            //35. WAT to display the number of salesman in the list
+            System.out.println("-----------35-----------");
+            Long salesman_count = eList.stream()
+            		.filter(e->e.job.equals("Salesman"))
+            		.count();
+            System.out.println(salesman_count);
+            
+
             
 		}
 
