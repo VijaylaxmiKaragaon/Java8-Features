@@ -304,7 +304,12 @@ class DataFromDB {
             .limit(3)
             .forEach(System.out::println);
             
-   
+                     //29 WAP to display the employee records based on salary minium to maximum
+            System.out.println("-----------29-----------");
+            eList.stream()
+            .sorted((java.util.Comparator.comparing(e->e.sal)))
+            .forEach(System.out::println);
+     
             
 		}
 
