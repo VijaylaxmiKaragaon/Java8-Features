@@ -310,7 +310,15 @@ class DataFromDB {
             .sorted((java.util.Comparator.comparing(e->e.sal)))
             .forEach(System.out::println);
      
-       
+                    
+            //30.WAP to display the emp fname records in alphabetical order
+            System.out.println("-----------30------------");
+            eList.stream()
+            .sorted(java.util.Comparator.comparing(e->e.fname))
+            .map(e->e.fname)
+            .forEach(System.out::println);
+            
+          
             
 		}
 
