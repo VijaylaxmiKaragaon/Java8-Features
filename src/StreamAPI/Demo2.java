@@ -326,7 +326,13 @@ class DataFromDB {
             .distinct()
             .forEach(System.out::println);
             
-      
+                  //32.WAP to display last 4 records from emp list
+            System.out.println("----------32-------------");
+            eList.stream()
+            .sorted(java.util.Comparator.comparing((Emp e)->e.eid).reversed())
+            .forEach(System.out::println);
+            
+  
             
 		}
 
