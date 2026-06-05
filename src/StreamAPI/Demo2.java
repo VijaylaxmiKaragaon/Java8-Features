@@ -295,7 +295,16 @@ class DataFromDB {
             .limit(2)
             .forEach(System.out::println);
 
-        
+         
+            
+            //28.WAT to display the first 3 emp data which has even id
+            System.out.println("-----------28--------------");
+            eList.stream()
+            .filter((e)->(e.eid)%2==0)
+            .limit(3)
+            .forEach(System.out::println);
+            
+   
             
 		}
 
