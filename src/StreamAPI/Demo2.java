@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -95,6 +96,8 @@ class DataFromDB {
 	}
 
 	public class Demo2 {
+
+		private static final Comparator<? super Emp> Comparator = null;
 
 		public static void main(String[] args) {
 			List<Emp> eList = DataFromDB.getAllEmp();
@@ -245,6 +248,16 @@ class DataFromDB {
             .map(e->e.dno)
             .distinct()
             .forEach(System.out::println);
+            
+            //21.WAP to display the fname,lname and salary if the employee is working as salesman or manager.
+            System.out.println("-----------21------------");
+            eList.stream()
+            .filter((e)->e.job.equalsIgnoreCase("salesman") || e.job.equalsIgnoreCase("Manager"))
+            .map(e->e.fname+" "+e.lname+" "+e.sal)
+            .forEach(System.out::println);
+            
+           
+            
 		}
 
 	}
