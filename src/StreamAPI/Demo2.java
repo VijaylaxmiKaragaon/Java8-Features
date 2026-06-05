@@ -288,7 +288,13 @@ class DataFromDB {
             .limit(1)
             .forEach(System.out::println);
             
-  
+                     //27.WAP to display the 8th and 9th emp data
+            System.out.println("----------27-------------");
+            eList.stream()
+            .skip(7)
+            .limit(2)
+            .forEach(System.out::println);
+
         
             
 		}
