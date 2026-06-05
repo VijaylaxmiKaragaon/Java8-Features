@@ -366,7 +366,15 @@ class DataFromDB {
             		System.out.println(num_emp);
             		
             		
-   
+                 //37. WAP to display the number of different job roles available in emp records
+            System.out.println("-------------37--------------");
+            Long diff_job = eList.stream()
+            		.map((e)->e.job)
+            		.distinct()
+            		.count();
+            System.out.println(diff_job);
+            
+         
             
 		}
 
