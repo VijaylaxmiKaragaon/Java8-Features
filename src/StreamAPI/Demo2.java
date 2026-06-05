@@ -332,7 +332,15 @@ class DataFromDB {
             .sorted(java.util.Comparator.comparing((Emp e)->e.eid).reversed())
             .forEach(System.out::println);
             
-  
+                   //33.WAP to display the 2nd max salary from emp list
+            System.out.println("-----------33----------");
+            eList.stream()
+            .sorted(java.util.Comparator.comparing((Emp e)->e.sal).reversed())
+            .skip(1)
+            .limit(1)
+            .forEach(System.out::println);
+            
+     
             
 		}
 
