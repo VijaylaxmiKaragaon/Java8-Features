@@ -256,7 +256,13 @@ class DataFromDB {
             .map(e->e.fname+" "+e.lname+" "+e.sal)
             .forEach(System.out::println);
             
-           
+            //22. WAP to display the 1st 5 data in employee list
+            System.out.println("-----------22------------");
+            eList.stream()
+            .limit(5)
+            .forEach(System.out::println);
+            
+        
             
 		}
 
