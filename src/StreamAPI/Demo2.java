@@ -262,6 +262,13 @@ class DataFromDB {
             .limit(5)
             .forEach(System.out::println);
             
+                //23. WAP to display 1st 4 emp fname
+            System.out.println("----------23--------------");
+            eList.stream()
+            .limit(4)
+            .forEach(System.out::println);
+            
+            
         
             
 		}
