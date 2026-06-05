@@ -358,7 +358,15 @@ class DataFromDB {
             		.count();
             System.out.println(salesman_count);
             
-
+                     //36. WAP to display the number of emp whose fname starts with s or k
+            System.out.println("-----------36------------");
+            Long num_emp = eList.stream()
+            		.filter(e->e.fname.startsWith("S") || e.fname.startsWith("K"))
+            		.count();
+            		System.out.println(num_emp);
+            		
+            		
+   
             
 		}
 
