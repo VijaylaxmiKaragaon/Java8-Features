@@ -310,6 +310,7 @@ class DataFromDB {
             .sorted((java.util.Comparator.comparing(e->e.sal)))
             .forEach(System.out::println);
      
+       
             
 		}
 
