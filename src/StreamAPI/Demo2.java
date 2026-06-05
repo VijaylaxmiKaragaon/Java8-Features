@@ -275,7 +275,13 @@ class DataFromDB {
             .limit(1)
             .forEach(System.out::println);
             
-      
+              //25.WAT to display 1st 10 records
+            System.out.println("-----------25-------------");
+            eList.stream()
+            .limit(10)
+            .forEach(System.out::println);
+            
+            
         
             
 		}
