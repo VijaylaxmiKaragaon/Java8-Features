@@ -374,7 +374,13 @@ class DataFromDB {
             		.count();
             System.out.println(diff_job);
             
-         
+             //38. WAP to display the number of dipartment available in dept list
+            System.out.println("-----------38---------------");
+            Long num_diff = eList.stream()
+            		.map((e)->e.dno)
+            		.distinct()
+            		.count();
+            System.out.println(num_diff); 
             
 		}
 
