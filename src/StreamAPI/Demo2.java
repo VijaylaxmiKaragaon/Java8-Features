@@ -318,7 +318,15 @@ class DataFromDB {
             .map(e->e.fname)
             .forEach(System.out::println);
             
-          
+            //31.WAP to display the emp salaries in desc order
+            System.out.println("----------31-----------");
+            eList.stream()
+            .sorted(java.util.Comparator.comparing((Emp e)->e.sal).reversed())
+            .map(e->e.sal)
+            .distinct()
+            .forEach(System.out::println);
+            
+      
             
 		}
 
