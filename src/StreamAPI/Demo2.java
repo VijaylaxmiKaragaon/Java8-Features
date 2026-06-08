@@ -8,7 +8,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 class Emp {
     Integer eid;
@@ -46,6 +49,12 @@ class Dept {
         this.dname = dname;
         this.lid = lid;
     }
+
+	@Override
+	public String toString() {
+		return "Dept [dno=" + dno + ", dname=" + dname + ", lid=" + lid + "]";
+	}
+    
 }
 
 class DataFromDB {
@@ -375,11 +384,11 @@ class DataFromDB {
 
             // 38. WAP to display the number of dipartment available in dept list
             System.out.println("-----------38---------------");
-            Long num_diff = eList.stream()
-                    .map((e) -> e.dno)
-                    .distinct()
+            Long num_diff = dList.stream()
                     .count();
             System.out.println(num_diff);
+            
+            
 
         }
 
