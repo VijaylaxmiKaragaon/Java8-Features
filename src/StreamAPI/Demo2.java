@@ -396,7 +396,18 @@ class DataFromDB {
             		.collect(Collectors.toList());
             System.out.println(emp_List1);
             
-     
+                  //40. WAP to display the emp fname,lname,sal,deptno 
+            //if the emp is working as developer or dispatcher.
+            //Display the data in the form of set
+            System.out.println("-----------40------------");
+            Set<String> emp_List2 =
+            		eList.stream()
+            		.filter((e) -> e.job.equalsIgnoreCase("developer") || e.job.equalsIgnoreCase("dispatcher"))
+            		.map((e)->e.fname+" "+e.lname+" "+e.sal+" "+e.dno)
+            		.collect(Collectors.toSet());
+            System.out.println(emp_List2);
+            
+           
 
         }
 
