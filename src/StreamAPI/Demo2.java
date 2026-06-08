@@ -407,7 +407,16 @@ class DataFromDB {
             		.collect(Collectors.toSet());
             System.out.println(emp_List2);
             
-           
+            //41.WAP to display the emp data in map format if the emp is 
+            //woking in dept 113
+            System.out.println("----------41-----------");
+            Map<Integer, Emp> map =
+            		eList.stream()
+            		.filter((e)->e.dno == 113)
+            		.collect(Collectors.toMap(e->e.eid, e->e));
+            		System.out.println(map);
+            		
+         
 
         }
 
