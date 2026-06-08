@@ -388,7 +388,15 @@ class DataFromDB {
                     .count();
             System.out.println(num_diff);
             
+            //39. WAP to optain the list of salesman result must be in list format
+            System.out.println("-----------39------------");
+            List<Emp> emp_List1 =
+            		eList.stream()
+            		.filter((e)->e.job.equals("Salesman"))
+            		.collect(Collectors.toList());
+            System.out.println(emp_List1);
             
+     
 
         }
 
