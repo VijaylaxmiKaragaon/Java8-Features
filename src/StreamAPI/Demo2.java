@@ -416,7 +416,12 @@ class DataFromDB {
             		.collect(Collectors.toMap(e->e.eid, e->e));
             		System.out.println(map);
             		
-         
+              //42.WAP to display the dept data in map format
+            		System.out.println("-----------42----------");
+            		Map<Integer,Dept> map1 =
+            				dList.stream()
+            				.collect(Collectors.toMap(d->d.dno, d->d));
+            				System.out.println(map1);
 
         }
 
