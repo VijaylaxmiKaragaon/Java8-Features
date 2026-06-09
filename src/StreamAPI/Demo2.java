@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -107,8 +108,6 @@ class DataFromDB {
         }
 
         public class Demo2 {
-
-                private static final Comparator<? super Emp> Comparator = null;
 
                 public static void main(String[] args) {
                         List<Emp> eList = DataFromDB.getAllEmp();
@@ -422,6 +421,16 @@ class DataFromDB {
                         Map<Integer, Dept> map1 = dList.stream()
                                         .collect(Collectors.toMap(d -> d.dno, d -> d));
                         System.out.println(map1);
+                        
+                        //43.WAP to display the emp data who is obtaining max salary from emp list
+                        System.out.println("---------43------------");
+                        Optional<Emp> max_sal=
+                        eList.stream()
+                        .collect(Collectors.maxBy(Comparator.comparing(e->e.sal)));
+                        System.out.println(max_sal.orElse(null));
+                        
+                     
+                        		
 
                 }
 
