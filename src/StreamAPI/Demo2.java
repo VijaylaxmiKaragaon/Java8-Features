@@ -7,12 +7,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+
+import com.collection.Students;
 
 class Emp {
         Integer eid;
@@ -436,6 +440,20 @@ class DataFromDB {
                         		eList.stream()
                         		.collect(Collectors.minBy(Comparator.comparing(e->e.sal)));
                         System.out.println(min_sal.orElse(null));		
+                        
+                        //45.WAP to display the max salary in each dept
+                        System.out.println("---------45----------");
+                        Map<Integer,Optional<Emp>> max_emp_dno=
+                        		eList.stream()
+                        		.collect(Collectors.groupingBy(e->e.dno,Collectors.maxBy(Comparator.comparing(e->e.sal))));
+                        max_emp_dno.forEach((dno,o)->System.out.println(dno+" "+o.orElse(null)));
+                        
+                        //46.WAP to display the min salary in each dept
+                        System.out.println("---------45----------");
+                        Map<Integer,Optional<Emp>> min_emp_dno=
+                        		eList.stream()
+                        		.collect(Collectors.groupingBy(e->e.dno,Collectors.minBy(Comparator.comparing(e->e.sal))));
+                        min_emp_dno.forEach((dno,o)->System.out.println(dno+" "+o.orElse(null)));
 
                 }
 
