@@ -430,7 +430,12 @@ class DataFromDB {
                         System.out.println(max_sal.orElse(null));
                         
                      
-                        		
+                         //43.WAP to display the emp data who is obtaining min salary from emp list
+                        System.out.println("---------44------------");
+                        Optional<Emp> min_sal=
+                        		eList.stream()
+                        		.collect(Collectors.minBy(Comparator.comparing(e->e.sal)));
+                        System.out.println(min_sal.orElse(null));		
 
                 }
 
