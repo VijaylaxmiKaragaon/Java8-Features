@@ -454,6 +454,8 @@ class DataFromDB {
                         		eList.stream()
                         		.collect(Collectors.groupingBy(e->e.dno,Collectors.minBy(Comparator.comparing(e->e.sal))));
                         min_emp_dno.forEach((dno,o)->System.out.println(dno+" "+o.orElse(null)));
+                        
+                        //47.WAP to display the 
 
                 }
 
