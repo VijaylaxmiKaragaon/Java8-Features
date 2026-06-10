@@ -487,6 +487,25 @@ class DataFromDB {
                         eList.stream()
                         .collect(Collectors.groupingBy(e->e.dno,Collectors.summingDouble(e->e.sal)));
                         map_total.forEach((dno,sal)->System.out.println(dno+" :"+sal));
+                        
+                        //52.WAP to display the first emp from emp list
+                        System.out.println("----------52---------");
+//                        eList.stream()
+//                        .collect(Collectors.go);
+                        
+                        //53.WAP to dispaly the 1st emp from each dept
+                        System.out.println("--------53--------");
+                        List<Integer> dnos=
+                        eList.stream()
+                        .map(e->e.dno)
+                        .distinct()
+                        .collect(Collectors.toList());
+                        for(Integer dep:dnos) {
+                        Optional<Emp> o =	eList.stream().filter(e->e.dno==dep).findFirst();
+                        System.out.println(dep+" "+o.orElse(null));
+                        }
+                        
+                        //54.WAP to check wheather any emp belong to 114 or not
 
                 }
 
