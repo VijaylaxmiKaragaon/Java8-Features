@@ -469,15 +469,24 @@ class DataFromDB {
                         
                         //49.WAP to display the max salary in each job role
                         System.out.println("-----------49-----------");
-                        Map<String,Optional<Emp>> job_emp=
+                        Map<Object, Optional<Emp>> job_emp=
                         		eList.stream()
-                        		.collect()
+                        		.collect(Collectors.groupingBy(e->e.dno,Collectors.maxBy(Comparator.comparing(e->e.sal))));
+                        job_emp.forEach((ejob,o)->System.out.println(ejob+" "+o.orElse(null)));
                         		
                         //50.WAP to display the avg salary in each dept
                         System.out.println("-----------50------------");
+                        Map<Integer,Double> avg_sal= 
+                        		eList.stream()
+                        		.collect(Collectors.groupingBy(e->e.dno,Collectors.averagingDouble(e->e.sal)));
+                        avg_sal.forEach((dno,sal)->System.out.println(dno+" "+sal));
                         		
                         //51.WAP to display total salary in each dept
                         System.out.println("-----------51------------");
+                        Map<Integer,Double> map_total=
+                        eList.stream()
+                        .collect(Collectors.groupingBy(e->e.dno,Collectors.summingDouble(e->e.sal)));
+                        map_total.forEach((dno,sal)->System.out.println(dno+" :"+sal));
 
                 }
 
