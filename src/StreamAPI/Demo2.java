@@ -447,13 +447,20 @@ class DataFromDB {
                         max_emp_dno.forEach((dno,o)->System.out.println(dno+" "+o.orElse(null)));
                         
                         //46.WAP to display the min salary in each dept
-                        System.out.println("---------45----------");
+                        System.out.println("---------46----------");
                         Map<Integer,Optional<Emp>> min_emp_dno=
                         		eList.stream()
                         		.collect(Collectors.groupingBy(e->e.dno,Collectors.minBy(Comparator.comparing(e->e.sal))));
                         min_emp_dno.forEach((dno,o)->System.out.println(dno+" "+o.orElse(null)));
                         
-                        //47.WAP to display the 
+                        //47.WAP to display the number of emps in each dept
+                        System.out.println("---------47----------");
+                        Map<Integer, Long> count_dept=
+                        		eList.stream()
+                        		.collect(Collectors.groupingBy(e->e.dno,Collectors.counting()));
+                        count_dept.forEach((dno,count)->System.out.println(dno+"-"+count));
+                        
+                        
 
                 }
 
