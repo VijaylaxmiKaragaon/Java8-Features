@@ -490,8 +490,7 @@ class DataFromDB {
                         
                         //52.WAP to display the first emp from emp list
                         System.out.println("----------52---------");
-//                        eList.stream()
-//                        .collect(Collectors.go);
+                        System.out.println(eList.stream().findFirst());
                         
                         //53.WAP to dispaly the 1st emp from each dept
                         System.out.println("--------53--------");
