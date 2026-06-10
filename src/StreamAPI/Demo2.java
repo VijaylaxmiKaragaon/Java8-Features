@@ -469,6 +469,15 @@ class DataFromDB {
                         
                         //49.WAP to display the max salary in each job role
                         System.out.println("-----------49-----------");
+                        Map<String,Optional<Emp>> job_emp=
+                        		eList.stream()
+                        		.collect()
+                        		
+                        //50.WAP to display the avg salary in each dept
+                        System.out.println("-----------50------------");
+                        		
+                        //51.WAP to display total salary in each dept
+                        System.out.println("-----------51------------");
 
                 }
 
