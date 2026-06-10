@@ -460,7 +460,15 @@ class DataFromDB {
                         		.collect(Collectors.groupingBy(e->e.dno,Collectors.counting()));
                         count_dept.forEach((dno,count)->System.out.println(dno+"-"+count));
                         
+                        //48.WAP to display the number of emps in each job role
+                        System.out.println("-----------48------------");
+                        Map<Object, Long> map_job = 
+                        		eList.stream()
+                        		.collect(Collectors.groupingBy(e->e.job,Collectors.counting()));
+                        map_job.forEach((job,count)->System.out.println(job+"-"+count));
                         
+                        //49.WAP to display the max salary in each job role
+                        System.out.println("-----------49-----------");
 
                 }
 
