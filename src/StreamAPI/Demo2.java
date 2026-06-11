@@ -513,6 +513,11 @@ class DataFromDB {
                         
                         //55.WAP to check wheather any emp belong to dept 115
                         System.out.println("------------55----------");
+                        Boolean res2=
+                        		eList.stream()
+                        		.filter(e->e.dno==113)
+                        		.allMatch(e->e.dno==113);
+                        	System.out.println(res2);
                         
 
                 }
