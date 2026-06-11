@@ -3,6 +3,10 @@ package com.DateAndTime;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Period;
+import java.time.chrono.IsoChronology;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 public class DateAndTime {
 
@@ -19,7 +23,15 @@ public class DateAndTime {
 		LocalTime lt = LocalTime.now();
 		System.out.println(lt);
 		
-
+		String date = "13-07-2026";
+		DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		LocalDate convertedDate = LocalDate.parse(date,f);
+		System.out.println(convertedDate);
+		
+		//TO OPTAIN the difference between date
+		Period p =Period.between(ld, convertedDate);
+		long totalDays = ChronoUnit.DAYS.between(ld, convertedDate);
+		System.out.println(totalDays);
 	}
 
 }
