@@ -518,8 +518,6 @@ class DataFromDB {
                         		.filter(e->e.dno==113)
                         		.allMatch(e->e.dno==113);
                         	System.out.println(res2);
-                        
-
                 }
 
         }
